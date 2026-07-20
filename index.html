@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Love Story ❤️</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+background:#000;
+font-family:sans-serif;
+overflow:hidden;
+}
+
+
+
+/* หน้า PIN */
+
+#login{
+
+height:100vh;
+
+background:
+linear-gradient(135deg,#ffb6d9,#fff);
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+color:#ff4081;
+
+}
+
+
+input{
+
+padding:15px;
+
+border:0;
+
+border-radius:30px;
+
+font-size:20px;
+
+text-align:center;
+
+width:200px;
+
+}
+
+
+button{
+
+margin:15px;
+
+padding:15px 35px;
+
+border:0;
+
+border-radius:30px;
+
+background:#ff4081;
+
+color:white;
+
+font-size:18px;
+
+}
+
+
+
+
+/* กล่องของขวัญ */
+
+
+#gift{
+
+height:100vh;
+
+display:none;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+color:white;
+
+}
+
+
+
+.box{
+
+width:180px;
+
+height:180px;
+
+background:#ff4081;
+
+border-radius:30px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:30px;
+
+animation:pulse 1s infinite;
+
+}
+
+
+
+@keyframes pulse{
+
+50%{
+
+transform:scale(1.1);
+
+}
+
+}
+
+
+
+
+/* TikTok */
+
+#story{
+
+display:none;
+
+height:100vh;
+
+overflow-y:scroll;
+
+scroll-snap-type:y mandatory;
+
+}
+
+
+
+.slide{
+
+height:100vh;
+
+scroll-snap-align:start;
+
+position:relative;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+color:white;
+
+}
+
+
+
+.slide img{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+}
+
+
+
+.dark{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+background:rgba(0,0,0,.45);
+
+}
+
+
+
+.text{
+
+z-index:2;
+
+font-size:25px;
+
+padding:30px;
+
+line-height:1.7;
+
+}
+
+
+
+
+/* หัวใจ */
+
+
+.heart{
+
+font-size:70px;
+
+cursor:pointer;
+
+}
+
+
+.fly{
+
+position:absolute;
+
+font-size:40px;
+
+animation:fly 1s forwards;
+
+}
+
+
+@keyframes fly{
+
+from{
+
+transform:scale(0);
+
+opacity:1;
+
+}
+
+to{
+
+transform:scale(2);
+
+transform:translateY(-200px);
+
+opacity:0;
+
+}
+
+}
+
+
+
+
+.counter{
+
+font-size:28px;
+
+color:#ffd1e8;
+
+z-index:2;
+
+}
+
+
+.timeline{
+
+font-size:25px;
+
+line-height:2;
+
+z-index:2;
+
+}
+
+
+
+.final{
+
+font-size:25px;
+
+z-index:2;
+
+padding:30px;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+
+<!-- PIN -->
+
+
+<div id="login">
+
+
+<h1>
+🔐 Secret Love
+</h1>
+
+
+<p>
+รหัสลับของเรา ❤️
+</p>
+
+
+<input id="pin"
+type="password"
+placeholder="PIN">
+
+
+<button onclick="checkPin()">
+
+เปิด
+
+</button>
+
+
+<p id="error"></p>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- กล่อง -->
+
+
+<div id="gift">
+
+
+<h1>
+🎁 ของขวัญสำหรับเธอ
+</h1>
+
+
+<div class="box"
+
+onmousedown="holdStart()"
+
+onmouseup="holdEnd()"
+
+ontouchstart="holdStart()"
+
+ontouchend="holdEnd()">
+
+
+กดค้าง ❤️
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- STORY -->
+
+
+<div id="story">
+
+
+<audio id="music" loop>
+
+<source src="song.mp3">
+
+</audio>
+
+
+
+
+
+
+<!-- รูป 1 -->
+
+
+<section class="slide">
+
+
+<img src="1.jpg">
+
+
+<div class="dark"></div>
+
+
+<div class="text">
+
+❤️ วันแรกที่เราเจอกัน
+
+<br><br>
+
+จากคนแปลกหน้า
+
+กลายเป็นคนสำคัญ
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- รูป 2 -->
+
+
+<section class="slide">
+
+
+<img src="2.jpg">
+
+
+<div class="dark"></div>
+
+
+<div class="text">
+
+💕 ความทรงจำของเรา
+
+<br><br>
+
+ขอบคุณทุกช่วงเวลา
+
+ที่มีด้วยกัน
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- รูป 3 -->
+
+
+<section class="slide">
+
+
+<img src="3.jpg">
+
+
+<div class="dark"></div>
+
+
+<div class="text">
+
+❤️ ขอบคุณที่อยู่ข้างกัน
+
+
+<br><br>
+
+
+<div class="heart"
+onclick="heart()">
+
+❤️
+
+</div>
+
+
+กดหัวใจให้เรา
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- Timeline -->
+
+
+<section class="slide">
+
+
+<div class="timeline">
+
+
+📅 Timeline ของเรา ❤️
+
+
+<br><br>
+
+
+วันแรกที่เจอ
+
+<br>
+
+↓
+
+<br>
+
+วันแรกที่คุยกัน
+
+<br>
+
+↓
+
+<br>
+
+วันที่ตกหลุมรัก
+
+<br>
+
+↓
+
+<br>
+
+วันนี้ 🥰
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- เวลา -->
+
+
+<section class="slide">
+
+
+<div class="counter">
+
+
+❤️ เรารักกันมาแล้ว
+
+
+<br><br>
+
+
+<span id="time">
+
+</span>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ขอเป็นแฟน -->
+
+
+<section class="slide">
+
+
+<div class="final">
+
+
+💌
+
+
+<br><br>
+
+
+ขอบคุณที่เข้ามา
+
+เป็นส่วนหนึ่งของชีวิต
+
+
+<br><br>
+
+
+อยากมีเธอ
+
+อยู่ด้วยกันไปนานๆ
+
+
+<h1>
+
+เป็นแฟนกันนะ ❤️
+
+</h1>
+
+
+
+<button onclick="yes()">
+
+ตกลง 💕
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<script>
+
+
+// ตั้งค่า
+
+const PASSWORD="22062542";
+
+
+const LOVE_DATE=
+new Date("2024-06-22T00:00:00");
+
+
+
+
+
+function checkPin(){
+
+
+if(pin.value==PASSWORD){
+
+
+login.style.display="none";
+
+gift.style.display="flex";
+
+
+}
+
+else{
+
+
+error.innerHTML=
+"รหัสไม่ถูก 💔";
+
+
+}
+
+
+}
+
+
+
+
+
+
+// กดค้างเปิด
+
+
+let hold;
+
+
+function holdStart(){
+
+
+hold=setTimeout(()=>{
+
+
+gift.style.display="none";
+
+story.style.display="block";
+
+
+music.play();
+
+
+counter();
+
+
+},1500);
+
+
+}
+
+
+function holdEnd(){
+
+clearTimeout(hold);
+
+}
+
+
+
+
+
+
+
+// หัวใจ
+
+
+function heart(){
+
+
+let h=document.createElement("div");
+
+
+h.className="fly";
+
+h.innerHTML="❤️";
+
+
+h.style.left=
+Math.random()*80+"%";
+
+
+h.style.top="50%";
+
+
+document.body.appendChild(h);
+
+
+
+setTimeout(()=>{
+
+h.remove();
+
+},1000);
+
+
+}
+
+
+
+
+
+
+// ตัวนับเวลา
+
+
+function counter(){
+
+
+setInterval(()=>{
+
+
+let now=new Date();
+
+
+let diff=
+now-LOVE_DATE;
+
+
+let day=
+Math.floor(
+diff/(1000*60*60*24)
+);
+
+
+let hour=
+Math.floor(
+(diff/(1000*60*60))%24
+);
+
+
+let minute=
+Math.floor(
+(diff/(1000*60))%60
+);
+
+
+let second=
+Math.floor(
+(diff/1000)%60
+);
+
+
+
+time.innerHTML=
+
+`
+${day} วัน
+
+<br>
+
+${hour} ชั่วโมง
+${minute} นาที
+${second} วินาที
+
+`;
+
+
+
+},1000);
+
+
+}
+
+
+
+
+
+
+
+function yes(){
+
+
+alert(
+"เย้ ❤️ ขอบคุณที่เลือกเรา"
+);
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
